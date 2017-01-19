@@ -21,6 +21,7 @@ http-service-agent 就是为了达到这样的效果而诞生的。
 下面展示 http-service-agent 的一个示例：
 
 1. 服务器定义了如下的 controller
+
         @Controller
         public class HelloController {
 
@@ -32,6 +33,7 @@ http-service-agent 就是为了达到这样的效果而诞生的。
         }
 
 2. 使用 http-service-client 访问该服务是很简单的，首先为这个 Controller 抽象一个访问接口 HelloService
+
         @HttpService
         public interface HelloService {
 
@@ -41,6 +43,7 @@ http-service-agent 就是为了达到这样的效果而诞生的。
         }
 
 3. 建立连接进行调用，获取返回结果；
+
         public static void main(String[] args) {
             ServiceAddress host = new ServiceAddress("10.1.1.10", 80, false);
             HelloService helloService = HttpServiceAgent.createService(HelloService.class, host);
